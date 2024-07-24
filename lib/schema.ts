@@ -16,7 +16,7 @@ export const invoiceSchema = z.object({
     sellerState: z.string().trim().min(1, {
         message: "Seller state is required"
     }),
-    sellerPincode: z.string().trim().min(1, {
+    sellerPincode: z.number().min(1, {
         message: "Seller pincode is required"
     }),
     sellerPlaceOfSupply: z.string().trim().min(1, {
@@ -34,13 +34,13 @@ export const invoiceSchema = z.object({
      billingState: z.string().trim().min(1, {
          message: 'Billing state is required'
      }),
-    billingPincode: z.string().trim().min(1, {
+    billingPincode: z.number().min(1, {
         message: 'Billing pincode is required'
     }),
     invoiceDate: z.string().trim().min(1, {
         message: 'Invoice date is required'
     }),
-    invoiceNo: z.string().trim().min(1, {
+    invoiceNo: z.number().min(1, {
         message: 'Invoice no is required'
     }),
     invoiceDetails: z.string().trim().min(1, {
@@ -55,7 +55,7 @@ export const invoiceSchema = z.object({
     shippingCity: z.string().trim().min(1, {
         message: 'Shipping city is required'
     }),
-    shippingPinCode: z.string().trim().min(1, {
+    shippingPinCode: z.number().min(1, {
         message: 'Shipping PinCode is required'
     }),
     shippingPlaceOfDelivery: z.string().trim().min(1, {

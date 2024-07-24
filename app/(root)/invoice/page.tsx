@@ -8,10 +8,7 @@ import { invoiceSchema } from "@/lib/schema";
 import AddressDetails from "./components/AddressDetails";
 
 const InvoicePage = () => {
-  const form = useForm({
-    resolver:zodResolver(invoiceSchema)
-  });
-  console.log(form);
+
   
   const data = [
     {

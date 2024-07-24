@@ -26,20 +26,23 @@ import InvoiceNo from "./components/formFields/InvoiceNo";
 import InvoiceDetails from "./components/formFields/InvoiceDetails";
 import SellerSignature from "./components/formFields/SellerSignature";
 import { useRouter } from "next/navigation";
+import { useAppDispatch } from "@/redux/hooks";
+import { setFormValues } from "@/redux/reducer";
 
-export type formValues = z.infer<typeof invoiceSchema>
+export type TformValues = z.infer<typeof invoiceSchema>
 
 export type formProps = {
-  form: UseFormReturn<formValues, any, undefined>;
+  form: UseFormReturn<TformValues, any, undefined>;
 };
 
 export default function Home() {
   const router = useRouter()
-  const form = useForm<formValues>({
+  const form = useForm<TformValues>({
     resolver: zodResolver(invoiceSchema),
   });
-  const onSubmit = (data: formValues) => {
-    console.log(data);
+  const dispatch = useAppDispatch();
+  const onSubmit = (data: TformValues) => {
+    dispatch(setFormValues(data));
     router.push('/invoice')
   };
   return (
