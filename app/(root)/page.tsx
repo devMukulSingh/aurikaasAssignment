@@ -1,7 +1,7 @@
-'use client'
+"use client";
 import { invoiceSchema } from "@/lib/schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import {  useFieldArray, useForm, UseFormReturn } from "react-hook-form";
+import { useFieldArray, useForm, UseFormReturn } from "react-hook-form";
 import { z } from "zod";
 import SellerName from "./components/formFields/SellerName";
 import { Form } from "@/components/ui/form";
@@ -40,38 +40,36 @@ import ProductDiscount from "./components/formFields/ProductDiscount";
 import { PlusCircle, X } from "lucide-react";
 import toast from "react-hot-toast";
 
-export type TformValues = z.infer<typeof invoiceSchema>
+export type TformValues = z.infer<typeof invoiceSchema>;
 
 export type formProps = {
   form: UseFormReturn<TformValues, any, undefined>;
 };
 
 export interface IproductDetailsFields extends formProps {
-  index:number
+  index: number;
 }
 
 export default function Home() {
-  const { formValues} = useAppSelector( state => state);
-  
-  const router = useRouter()
+  const { formValues } = useAppSelector((state) => state);
+
+  const router = useRouter();
   const form = useForm<TformValues>({
     resolver: zodResolver(invoiceSchema),
-    defaultValues : formValues
+    defaultValues: formValues,
   });
-  const { fields,append,remove } = useFieldArray({
-    control:form.control,
-    name:'productDetails',
-  })
+  const { fields, append, remove } = useFieldArray({
+    control: form.control,
+    name: "productDetails",
+  });
   const dispatch = useAppDispatch();
   const onSubmit = (data: TformValues) => {
-    console.log(data );
-    
     dispatch(setFormValues(data));
-    router.push('/invoice')
+    router.push("/invoice");
   };
   const handleAddMore = () => {
-    if(fields.length > 9){
-      toast.error('Maximum 10 products allowed')
+    if (fields.length > 9) {
+      toast.error("Maximum 10 products allowed");
       return;
     }
     append({
@@ -81,105 +79,122 @@ export default function Home() {
       productUnitPrice: 0,
       siNo: fields.length + 1,
     });
-  }
+  };
   console.log(form.formState.errors);
-  
+
   return (
     <main className="flex justify-center items-center gap-5 flex-col py-10 bg-slate-900">
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="flex flex-col gap-5 border px-5 py-10 shadow-lg rounded-md bg-slate-100"
+          className="flex flex-col gap-5 border px-5 py-10 shadow-lg rounded-md bg-slate-100 "
         >
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-4 ">
-            <div className="lg:col-span-3 md:col-span-2 col-span-1">
+          <div className="  ">
+            <div className="">
               <hr />
-              <h1 className="text-center font-semibold text-xl">
+              <h1 className="text-center font-semibold text-lg sm:text-xl">
                 Seller Details
               </h1>
               <hr />
             </div>
-            <SellerName form={form} />
-            <SellerCity form={form} />
-            <SellerState form={form} />
-            <SellerPin form={form} />
-            <SellerPan form={form} />
-            <SellerGST form={form} />
-            <SellerSignature form={form} />
+            <div className="grid lg:grid-cols-3 gap-x-5 gap-y-4 sm:grid-cols-2 grid-cols-1  ">
+              <SellerName form={form} />
+              <SellerCity form={form} />
+              <SellerState form={form} />
+              <SellerPin form={form} />
+              <SellerPan form={form} />
+              <SellerGST form={form} />
+              <SellerSignature form={form} />
+            </div>
 
-            <div className="lg:col-span-3 md:col-span-2 col-span-1 space-y-2">
+            <div className="col-span-3 space-y-2">
               <hr />
-              <h1 className="text-center font-semibold text-xl">
+              <h1 className="text-center font-semibold text-lg sm:text-xl">
                 Billing Details
               </h1>
               <hr />
             </div>
-            <BillingName form={form} />
-            <BillingCity form={form} />
-            <BillingState form={form} />
-            <BillingPincode form={form} />
-            <BillingStateCode form={form} />
-
-            <div className="lg:col-span-3 md:col-span-2 col-span-1 space-y-2">
+            <div className="grid lg:grid-cols-3 gap-x-5 gap-y-4 sm:grid-cols-2  grid-cols-1 ">
+              <BillingName form={form} />
+              <BillingCity form={form} />
+              <BillingState form={form} />
+              <BillingPincode form={form} />
+              <BillingStateCode form={form} />
+            </div>
+            <div className="col-span-3 space-y-2">
               <hr />
-              <h1 className="text-center font-semibold text-xl">
+              <h1 className="text-center font-semibold text-lg sm:text-xl">
                 Shipping details
               </h1>
               <hr />
             </div>
 
-            <ShippingName form={form} />
-            <ShippingCity form={form} />
-            <ShippingState form={form} />
-            <ShippingPinCode form={form} />
-            <ShippingPlaceOfDelivery form={form} />
-            <ShippingPlaceOfSuppply form={form} />
-            <ShippingStateCode form={form} />
+            <div className="grid lg:grid-cols-3 gap-x-5 gap-y-4 sm:grid-cols-2  grid-cols-1  ">
+              <ShippingName form={form} />
+              <ShippingCity form={form} />
+              <ShippingState form={form} />
+              <ShippingPinCode form={form} />
+              <ShippingPlaceOfDelivery form={form} />
+              <ShippingPlaceOfSuppply form={form} />
+              <ShippingStateCode form={form} />
+            </div>
 
-            <div className="lg:col-span-3 md:col-span-2 col-span-1 space-y-2">
+            <div className="col-span-3 space-y-2">
               <hr />
-              <h1 className="text-center font-semibold text-xl">
+              <h1 className="text-center font-semibold text-lg sm:text-xl">
                 Invoice details
               </h1>
               <hr />
             </div>
-            <InvoiceDate form={form} />
-            <InvoiceNo form={form} />
-            <InvoiceDetails form={form} />
-            <OrderNo form={form} />
-            <OrderDate form={form} />
+            <div className="grid lg:grid-cols-3 gap-x-5 gap-y-4 sm:grid-cols-2  grid-cols-1  ">
+              <InvoiceDate form={form} />
+              <InvoiceNo form={form} />
+              <InvoiceDetails form={form} />
+              <OrderNo form={form} />
+              <OrderDate form={form} />
+            </div>
 
-            <div className="lg:col-span-3 md:col-span-2 col-span-1 space-y-2">
+            <div className="col-span-3 space-y-2">
               <hr />
-              <h1 className="text-center font-semibold text-xl">
+              <h1 className="text-center font-semibold text-lg sm:text-xl">
                 Product details
               </h1>
               <hr />
             </div>
-            <div className="col-span-3 flex flex-col space-y-5 max-h-[30rem] border overflow-auto p-5">
+            <div className="relative col-span-3 flex flex-col space-y-5 max-h-[30rem] border overflow-auto p-5">
               {fields.map((item, index) => (
-                <>
-                  <div className="grid grid-cols-3 gap-5 " key={item.id}>
+                <div className="flex flex-col gap-5">
+                  <Button
+                    disabled={fields.length < 2}
+                    type="button"
+                    variant={"destructive"}
+                    size={"icon"}
+                    className=" rounded-full self-start p-0 ml-auto"
+                    onClick={() => remove(index)}
+                  >
+                    <X size={15} />
+                  </Button>
+                  <div
+                    className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 "
+                    key={item.id}
+                  >
                     <ProductDescription form={form} index={index} />
+
                     <ProductUnitPrice form={form} index={index} />
-                    <Button
-                      disabled={fields.length < 2}
-                      type="button"
-                      variant={"destructive"}
-                      size={"icon"}
-                      className="ml-auto rounded-full self-end"
-                      onClick={() => remove(index)}
-                    >
-                      <X size={25} />
-                    </Button>
+
                     <ProductQuantity form={form} index={index} />
                     <ProductDiscount form={form} index={index} />
                   </div>
                   <hr className="border border-dotted border-neutral-300" />
-                </>
+                </div>
               ))}
-              <Button className="w-fit" variant={"outline"} type="button" onClick={ handleAddMore}>
-                <PlusCircle className="mr-2"/>
+              <Button
+                className="w-fit"
+                variant={"outline"}
+                type="button"
+                onClick={handleAddMore}
+              >
+                <PlusCircle className="mr-2" />
                 Add more
               </Button>
             </div>
