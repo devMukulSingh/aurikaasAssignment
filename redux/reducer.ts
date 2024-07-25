@@ -16,6 +16,7 @@ const initialState:IinitialState = {
         billingCity:"",
         billingPincode:0,
         billingState:"",
+        billingStateCode:0,
         invoiceDate:"",
         invoiceDetails:"",
         invoiceNo:0,
@@ -24,7 +25,20 @@ const initialState:IinitialState = {
         shippingPinCode:0,
         shippingPlaceOfDelivery:"",
         shippingState:"",
-
+        shippingStateCode:0,
+        orderNo:0,
+        orderDate:"",
+        shippingPlaceOfSupply:"",
+        productDetails:[
+            {
+                productDescription:'',
+                productDiscount:0,
+                productQuantity:0,
+                productUnitPrice:0,
+                siNo:1,
+            }
+        ],
+        
     }
 }
 

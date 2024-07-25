@@ -13,9 +13,9 @@ const OrderNo = ({ form }: formProps) => {
       control={form.control}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>Order no</FormLabel>
+          <FormLabel>Order no:</FormLabel>
           <FormControl>
-            <Input type="number" {...field} />
+            <Input {...field} />
           </FormControl>
           <FormMessage />
         </FormItem>

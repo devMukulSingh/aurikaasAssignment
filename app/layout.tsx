@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Providers from "@/lib/Providers";
 import PersistProvider from "@/lib/PersistProvider";
+import { Toaster } from "react-hot-toast";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-          <PersistProvider>{children}</PersistProvider>
+          <PersistProvider>
+            <Toaster/>
+            {children}</PersistProvider>
         </Providers>
       </body>
     </html>

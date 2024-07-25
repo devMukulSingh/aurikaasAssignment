@@ -1,18 +1,19 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import React from 'react'
+import { FieldValues, Form, UseFormReturn } from 'react-hook-form';
 import { formProps } from '../../page';
 
 
 
-const OrderDate = ({ form }: formProps) => {
+const BillingStateCode = ({ form }: formProps) => {
   return (
     <FormField
-      name="orderDate"
+      name="billingStateCode"
       control={form.control}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>Order date:</FormLabel>
+          <FormLabel>Billing state code</FormLabel>
           <FormControl>
             <Input {...field} />
           </FormControl>
@@ -23,4 +24,4 @@ const OrderDate = ({ form }: formProps) => {
   );
 };
 
-export default OrderDate
+export default BillingStateCode

@@ -3,7 +3,7 @@ import { ColumnDef } from "@tanstack/react-table";
 
 export type ProductTable = {
   siNo: number;
-  qty: number;
+  productQty: number;
   shipping: {
     totalAmount:number,
     description: string;

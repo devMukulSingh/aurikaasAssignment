@@ -9,6 +9,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { useAppSelector } from "@/redux/hooks"
 import { ColumnDef, flexRender, getCoreRowModel, useReactTable } from '@tanstack/react-table'
 import Image from "next/image"
 
@@ -23,6 +24,7 @@ function ProductsTable<TData,TValue>({ columns, data }: DataTableProps<TData, TV
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
+  const { sellerSignature } = useAppSelector( state  => state.formValues)
     return (
       <div className="rounded-md border">
         <Table>
@@ -81,7 +83,7 @@ function ProductsTable<TData,TValue>({ columns, data }: DataTableProps<TData, TV
             <h1 className="font-bold text-lg ">For Varasiddhi:</h1>
             <Image
               className="object-contain"
-              src="/next.svg"
+              src={sellerSignature}
               alt="signature"
               height={100}
               width={100}

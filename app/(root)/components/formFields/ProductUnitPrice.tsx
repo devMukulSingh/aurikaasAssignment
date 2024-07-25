@@ -1,18 +1,18 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import React from 'react'
-import { formProps } from '../../page';
+import { IproductDetailsFields } from '../../page';
 
 
 
-const OrderDate = ({ form }: formProps) => {
+const ProductUnitPrice = ({ form, index }: IproductDetailsFields) => {
   return (
     <FormField
-      name="orderDate"
+      name={`productDetails.${index}.productUnitPrice`}
       control={form.control}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>Order date:</FormLabel>
+          <FormLabel>Product unit price</FormLabel>
           <FormControl>
             <Input {...field} />
           </FormControl>
@@ -23,4 +23,4 @@ const OrderDate = ({ form }: formProps) => {
   );
 };
 
-export default OrderDate
+export default ProductUnitPrice

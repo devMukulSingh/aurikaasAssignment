@@ -6,7 +6,7 @@ import { formProps } from '../../page';
 
 
 
-const SellerPlaceOfSupply = ({ form }: formProps) => {
+const SellerPlaceOfSuppply = ({ form }: formProps) => {
   return (
     <FormField
       name="sellerPlaceOfSupply"
@@ -24,4 +24,4 @@ const SellerPlaceOfSupply = ({ form }: formProps) => {
   );
 };
 
-export default SellerPlaceOfSupply
+export default SellerPlaceOfSuppply
