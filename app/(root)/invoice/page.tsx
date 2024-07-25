@@ -4,7 +4,8 @@ import ProductsTable from "./components/ProductsTable";
 import { columns } from "./components/columns";
 import AddressDetails from "./components/AddressDetails";
 import { useAppSelector } from "@/redux/hooks";
-
+import { Button } from "@/components/ui/button";
+import { Printer } from "lucide-react";
 const InvoicePage = () => {
 
   const { productDetails,shippingPlaceOfDelivery,shippingPlaceOfSupply } = useAppSelector(state => state.formValues)
@@ -88,8 +89,16 @@ const InvoicePage = () => {
 
  
   return (
-    <div className="flex flex-col py-5  items-center print:h-screen print:py-0 print:bg-white min-h-[calc(100vh-5rem)]  bg-neutral-900">
-      <div className=" flex flex-col gap-5  px-10 py-5 border min-h-[1024px]  min-w-[768px]  rounded-md bg-white">
+    <div className="relative flex flex-col gap-5 py-5  items-center print:h-screen print:py-0 print:bg-white min-h-[calc(100vh-5rem)]  bg-neutral-900">
+      <Button
+        variant={"outline"}
+        className="self-center print:hidden"
+        onClick={() => globalThis.print()}
+      >
+        <Printer className="mr-2" />
+        Print
+      </Button>
+      <div className=" flex flex-col gap-5 print:h-screen  px-10 py-5 border min-h-[1024px] max-w-[50rem] min-w-[768px]  rounded-md bg-white">
         <AddressDetails />
         <hr />
         <div className="">

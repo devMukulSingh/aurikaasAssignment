@@ -48,17 +48,16 @@ const toWords = new ToWords({
     },
   },
 });
-  console.log(data);
 
   return (
-    <div className="rounded-md border">
-      <Table>
+    <div className="rounded-md border ">
+      <Table className="text-xs border-black!">
         <TableHeader>
           {table.getHeaderGroups().map((headerGroup) => (
-            <TableRow key={headerGroup.id}>
+            <TableRow key={headerGroup.id} className="bg-slate-200">
               {headerGroup.headers.map((header) => {
                 return (
-                  <TableHead key={header.id}>
+                  <TableHead key={header.id} className="font-bold text-black">
                     {header.isPlaceholder
                       ? null
                       : flexRender(
@@ -95,32 +94,32 @@ const toWords = new ToWords({
         </TableBody>
       </Table>
       <div className="flex flex-col border-2 ">
-        <div className="flex justify-between pr-[30px]">
-          <h1 className="text-lg font-bold">Total</h1>
-          <div className="flex self-end gap-[30px]">
+        <div className="flex justify-between pr-[20px] text-xs">
+          <h1 className="text-sm font-bold">TOTAL:</h1>
+          <div className="flex self-end gap-[22px]">
             <h1 className="font-bold">₹{totalBill as number}</h1>
             <h1 className="font-bold">₹{totalTax}</h1>
           </div>
         </div>
         <hr />
-        <h1 className="font-bold text-lg">Amount in Words:</h1>
-        <h1 className="font-bold text-lg">
+        <h1 className="font-bold ">Amount in Words:</h1>
+        <h1 className="font-bold ">
           {toWords.convert(totalBill, { currency: true, ignoreDecimal: true })}
         </h1>
         <hr className="w-full text-black" />
         <div className="self-end py-2 px-5">
-          <h1 className="font-bold text-lg ">For Varasiddhi:</h1>
+          <h1 className="font-bold  ">For Varasiddhi:</h1>
           <Image
-            className="object-contain"
+            className="object-contain object-center"
             src={sellerSignature}
             alt="signature"
-            height={100}
-            width={100}
+            height={80}
+            width={80}
           />
-          <h1 className="font-bold text-lg">Authorised Signature</h1>
+          <h1 className="font-bold ">Authorised Signature</h1>
         </div>
       </div>
-      <h1 className="text-lg">
+      <h1 className="">
         Whether tax is payable under reverse charge - No
       </h1>
     </div>

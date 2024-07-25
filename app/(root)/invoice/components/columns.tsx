@@ -1,30 +1,30 @@
-'use client'
+"use client";
 import { ColumnDef } from "@tanstack/react-table";
 
 export type ProductTable = {
   siNo: number;
   productQty: number;
   shipping: {
-    totalAmount:number,
+    totalAmount: number;
     description: string;
     netAmount: number;
-    unitPrice:number;
+    unitPrice: number;
     tax: {
-        taxRate: number;
-        taxType: string;
-        taxAmount: number;
-    }[]
+      taxRate: number;
+      taxType: string;
+      taxAmount: number;
+    }[];
   };
   product: {
-     totalAmount:number,
+    totalAmount: number;
     description: string;
     netAmount: number;
-     unitPrice:number;
-    tax:  {
-        taxRate: number;
-        taxType: string;
-        taxAmount: number;
-      }[]
+    unitPrice: number;
+    tax: {
+      taxRate: number;
+      taxType: string;
+      taxAmount: number;
+    }[];
   };
 };
 
@@ -32,8 +32,10 @@ export const columns: ColumnDef<ProductTable>[] = [
   {
     accessorKey: "siNo",
     header: "SI. No",
+    size: 20,
   },
   {
+    size: 600,
     header: "Description",
     id: "description",
     cell: ({ row }) => (
@@ -45,6 +47,7 @@ export const columns: ColumnDef<ProductTable>[] = [
   },
   {
     header: "Unit Price",
+    size: 50,
     id: "unitPrice",
     cell: ({ row }) => (
       <>
@@ -57,6 +60,7 @@ export const columns: ColumnDef<ProductTable>[] = [
   {
     accessorKey: "productQty",
     header: "Qty",
+    size: 50,
   },
   {
     header: "Net Amount",
@@ -67,9 +71,12 @@ export const columns: ColumnDef<ProductTable>[] = [
         <br />₹{row.original.shipping.netAmount}
       </>
     ),
+    size: 50,
   },
   {
     header: "Tax Rate",
+    size: 50,
+
     cell: ({ row }) => (
       <>
         {row.original.product.tax.map((t) => (
@@ -110,6 +117,7 @@ export const columns: ColumnDef<ProductTable>[] = [
       </>
     ),
     header: "Tax type",
+    size: 100,
   },
   {
     cell: ({ row }) => (
@@ -133,6 +141,7 @@ export const columns: ColumnDef<ProductTable>[] = [
     header: "Tax Amount",
   },
   {
+    size:100,
     header: "Total Amount",
     cell: ({ row }) => (
       <>

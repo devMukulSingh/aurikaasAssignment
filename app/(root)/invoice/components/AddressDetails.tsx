@@ -1,4 +1,5 @@
 "use client";
+
 import { useAppSelector } from "@/redux/hooks";
 import Image from "next/image";
 
@@ -28,7 +29,7 @@ const AddressDetails = () => {
     orderNo
   } = useAppSelector((state) => state.formValues);
   return (
-    <div className="min-h-1/2 whitespace-nowrap ">
+    <div className="flex flex-col min-h-1/2 whitespace-nowrap ">
 
       <div className="flex justify-between">
         <Image
@@ -47,7 +48,7 @@ const AddressDetails = () => {
       </div>
 
       {/* /////////////Sellerdetails/////////////////// */}
-      <div className=" grid grid-cols-2 gap-5 auto-rows-min mt-20">
+      <div className=" grid grid-cols-2 gap-x-5 gap-y-2 auto-rows-min mt-10">
         <div className="">
           <h1 className="font-bold">Sold By:</h1>
           <h1>{sellerName}</h1>
