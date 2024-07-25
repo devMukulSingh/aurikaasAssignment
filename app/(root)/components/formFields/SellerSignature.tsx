@@ -1,22 +1,22 @@
 import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import React, { ChangeEvent } from 'react'
-import { formProps, formValues } from '../../page';
+import { formProps, TformValues } from '../../page';
 import { ControllerRenderProps } from 'react-hook-form';
 
 const SellerSignature = ({ form }: formProps) => {
   const handleChange = (
     e: ChangeEvent<HTMLInputElement>,
-    field: ControllerRenderProps<formValues>
+    field: ControllerRenderProps<TformValues>
   ) => {
-    const signatureImg = e?.target?.files?.[0]
+    const signatureImg = e?.target?.files?.[0];
     if (signatureImg) {
       const reader = new FileReader();
       reader.onloadend = () => {
-        field.onChange(reader.result)
-      }
+        field.onChange(reader.result);
+      };
       reader.readAsDataURL(signatureImg);
-    } 
+    }
   };
   return (
     <FormField

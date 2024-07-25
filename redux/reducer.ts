@@ -10,7 +10,6 @@ const initialState:IinitialState = {
         sellerGST: "",
         sellerState: "",
         sellerPincode: 0,
-        sellerPlaceOfSupply: "",
         sellerSignature: "",
         billingName: "",
         billingCity:"",
