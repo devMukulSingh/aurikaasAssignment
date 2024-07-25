@@ -6,14 +6,14 @@ import { formProps } from '../../page';
 
 
 
-const SellerPlaceOfSuppply = ({ form }: formProps) => {
+const ShippingPlaceOfSuppply = ({ form }: formProps) => {
   return (
     <FormField
-      name="sellerPlaceOfSupply"
+      name="shippingPlaceOfSupply"
       control={form.control}
       render={({ field }) => (
         <FormItem>
-          <FormLabel>Seller place of supply</FormLabel>
+          <FormLabel>Shipping place of supply</FormLabel>
           <FormControl>
             <Input {...field} />
           </FormControl>
@@ -24,4 +24,4 @@ const SellerPlaceOfSuppply = ({ form }: formProps) => {
   );
 };
 
-export default SellerPlaceOfSuppply
+export default ShippingPlaceOfSuppply

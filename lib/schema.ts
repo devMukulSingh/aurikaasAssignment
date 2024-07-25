@@ -19,9 +19,6 @@ export const invoiceSchema = z.object({
     sellerPincode: z.coerce.number().min(1, {
         message: "Seller pincode is required"
     }),
-    sellerPlaceOfSupply: z.string().trim().min(1, {
-        message: 'Seller place of supply is required'
-    }),
     sellerSignature :z.string().min(1,{
         message:"Signature is required"
     }),
@@ -74,7 +71,7 @@ export const invoiceSchema = z.object({
         message: 'Shipping place of delivery is required'
     }),
     shippingPlaceOfSupply: z.string().trim().min(1, {
-        message: 'Shipping place of delivery is required'
+        message: 'Shipping place of supply is required'
     }),
     productDetails : z.object({
         siNo: z.coerce.number(),

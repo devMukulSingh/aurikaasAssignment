@@ -105,7 +105,6 @@ export default function Home() {
             <SellerPin form={form} />
             <SellerPan form={form} />
             <SellerGST form={form} />
-            <SellerPlaceOfSupply form={form} />
             <SellerSignature form={form} />
 
             <div className="lg:col-span-3 md:col-span-2 col-span-1 space-y-2">

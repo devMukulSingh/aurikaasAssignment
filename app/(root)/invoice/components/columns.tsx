@@ -55,7 +55,7 @@ export const columns: ColumnDef<ProductTable>[] = [
     ),
   },
   {
-    accessorKey: "qty",
+    accessorKey: "productQty",
     header: "Qty",
   },
   {
