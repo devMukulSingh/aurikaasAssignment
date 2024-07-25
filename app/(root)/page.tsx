@@ -163,7 +163,7 @@ export default function Home() {
             </div>
             <div className="relative col-span-3 flex flex-col space-y-5 max-h-[30rem] border overflow-auto p-5">
               {fields.map((item, index) => (
-                <div className="flex flex-col gap-5">
+                <div key={index} className="flex flex-col gap-5">
                   <Button
                     disabled={fields.length < 2}
                     type="button"
